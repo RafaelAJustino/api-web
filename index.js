@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 mongoose.set('strictQuery', false);
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 // leitura JSON
 
@@ -34,7 +34,7 @@ const DB_PASS = 'root';
 
 mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@web3.rcbnis4.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {
-        app.listen(port);
+        app.listen(port, '0.0.0.0');
         console.log('Conectado ao MongoDB!');
     })
     .catch((err) => {
